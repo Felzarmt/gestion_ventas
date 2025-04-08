@@ -1,0 +1,303 @@
+/* Variables de colores globales */
+:root {
+    --primary-color: #2d3336;
+    --secondary-color: #2ecc71;
+    --accent-color: #e74c3c;
+    --light-bg: #f9f9f9;
+    --dark-text: #333333;
+    --light-text: #ffffff;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+/* Estilos generales para formularios */
+.custom_form_view {
+    background-color: var(--light-bg);
+    padding: 0;
+    margin: 0;
+}
+
+.custom_form_header {
+    background: linear-gradient(135deg, var(--primary-color), #2980b9);
+    border-bottom: none;
+    padding: 10px 20px;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.custom_form_header .o_statusbar_status {
+    margin-top: 5px;
+}
+
+.custom_form_header .o_statusbar_status button.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--light-text);
+    border: none;
+    margin-right: 5px;
+    transition: var(--transition);
+}
+
+.custom_form_header .o_statusbar_status button.btn-primary {
+    background-color: var(--secondary-color);
+    border: none;
+    box-shadow: var(--shadow);
+}
+
+.custom_form_sheet {
+    padding: 20px;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    box-shadow: var(--shadow);
+    margin: 0 10px 10px 10px;
+    background-color: #ffffff;
+}
+
+.form_title_container {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.form_title {
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Estilos para el notebook y páginas */
+.custom_notebook {
+    margin-top: 20px;
+    border: none;
+}
+
+.custom_notebook .nav-tabs {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.custom_notebook .nav-tabs .nav-link {
+    color: var(--dark-text);
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 10px 20px;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.custom_notebook .nav-tabs .nav-link.active {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+    background-color: transparent;
+}
+
+.custom_notebook .nav-tabs .nav-link:hover:not(.active) {
+    border-bottom: 3px solid #e0e0e0;
+}
+
+.custom_notebook .tab-content {
+    padding: 20px 10px;
+}
+
+/* Campos personalizados */
+.field_highlight {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.field_date input {
+    background-color: #f5f5f5;
+    border-radius: var(--border-radius);
+    border: 1px solid #e0e0e0;
+    padding: 8px;
+}
+
+.field_customer input, .field_seller input {
+    border-radius: var(--border-radius);
+    border: 1px solid #e0e0e0;
+    padding: 8px;
+    box-shadow: none;
+    transition: var(--transition);
+}
+
+.field_customer input:focus, .field_seller input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.field_total {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+/* Botón personalizado */
+.custom_button {
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    border: none;
+}
+
+.create_invoice_button {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+}
+
+.create_invoice_button:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+/* Estilos para la lista editable */
+.custom_editable_list {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.custom_editable_list thead {
+    background-color: #f5f7fa;
+}
+
+.custom_editable_list th {
+    border-top: none;
+    border-bottom: 2px solid #e0e0e0;
+    padding: 12px 10px;
+    font-weight: 600;
+    color: #505050;
+}
+
+.custom_editable_list td {
+    padding: 12px 10px;
+    vertical-align: middle;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.custom_editable_list tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Estilos para Kanban */
+.custom_kanban .o_kanban_group {
+    background-color: #f5f7fa;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    margin: 0 5px;
+}
+
+.custom_kanban .o_kanban_group .o_kanban_header {
+    background-color: #ebeff5;
+    padding: 10px;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.custom_kanban_card {
+    background-color: #ffffff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 10px;
+    border: none !important;
+    transition: var(--transition);
+}
+
+.custom_kanban_card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.custom_kanban_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.customer_name {
+    color: var(--primary-color);
+    font-size: 16px;
+}
+
+.sale_date {
+    color: #888;
+    font-size: 12px;
+}
+
+.custom_kanban_content {
+    padding: 12px 15px;
+}
+
+.custom_kanban_content div {
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.custom_kanban_content div i {
+    margin-right: 8px;
+    font-size: 14px;
+    color: #888;
+}
+
+.seller_info {
+    color: #555;
+}
+
+.price_info {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.state_info {
+    margin-top: 5px;
+    background-color: rgba(52, 152, 219, 0.1);
+    color: var(--primary-color);
+    padding: 3px 10px !important;
+    border-radius: 15px;
+    display: inline-flex !important;
+    font-size: 12px;
+}
+
+/* Estilos para el calendario */
+.custom_calendar .fc-day-header {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 10px;
+}
+
+.custom_calendar .fc-content {
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.custom_calendar .fc-event {
+    border-radius: 3px;
+    border: none;
+    box-shadow: var(--shadow);
+}
+
+/* Mensaje de ayuda vacía */
+.custom_help_message {
+    padding: 30px;
+    font-size: 18px;
+    color: #888;
+    text-align: center;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 767px) {
+    .custom_form_sheet {
+        margin: 0;
+        padding: 15px;
+    }
+    
+    .form_title {
+        font-size: 20px;
+    }
+    
+    .custom_notebook .nav-tabs .nav-link {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
