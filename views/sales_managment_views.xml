@@ -34,6 +34,7 @@
                             <group>
                                 <field name="full_price" widget="monetary" readonly="1"/>
                                 <field name="invoice_id" readonly="1"/>
+                                <button name="generar_factura" string="Crear factura" type="object" class="oe_highlight"/>
                             </group>
                         </page>
                         <page string="Seguimiento">
