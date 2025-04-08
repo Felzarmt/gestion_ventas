@@ -59,7 +59,7 @@
             <field name="sell_date"/>
             <field name="full_price"/>
             <templates>
-                <t>
+                <t t-name="card">
                     <div class="o_kanban_record">
                         <div class="o_kanban_header d-flex justify-content-between align-items-center">
                             <strong><field name="costumer"/></strong>
@@ -102,6 +102,5 @@
     <menuitem id="menu_gestion_ventas_root" name="Ventas" sequence="10"/>
     <menuitem id="menu_gestion_ventas_main" name="Gestión de Ventas" parent="menu_gestion_ventas_root" sequence="1"/>
     <menuitem id="menu_gestion_ventas_items" name="Ventas" parent="menu_gestion_ventas_main" action="action_gestion_ventas" sequence="1"/>
-    <menuitem id="menu_dashboard_gestion_ventas" name="Dashboard" parent="menu_gestion_ventas_main" action="gestion_ventas_dashboard_action" sequence="2"/>
-
+   
 </odoo>

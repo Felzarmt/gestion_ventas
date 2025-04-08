@@ -56,6 +56,10 @@ class GestionVentas (models.Model):
                 'invoice_line_ids': lineas,
             })
 
+            # Recalcular totales y validar
+            factura._recompute_dynamic_lines()
+            factura.action_post()
+
             # Guardar la factura en el campo Many2one
             record.invoice_id = factura.id
 
