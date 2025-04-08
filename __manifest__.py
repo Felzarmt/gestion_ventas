@@ -9,6 +9,7 @@
     ],
     "data": [
         # "security/ir.model.access.csv",
-
+        # "views/sales_graph.xml",
+        # "views/sales_managment_views.xml"
     ]
 }

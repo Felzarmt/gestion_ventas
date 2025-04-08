@@ -22,6 +22,6 @@
   <menuitem
     id="sales_graph_menu"
     name="Analisis de ventas"
-    parent="menu_root_gestion_ventas"
+    parent="menu_gestion_ventas_root"
     action="action_sales_graph"/>
 </odoo>
