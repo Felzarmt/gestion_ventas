@@ -1,2 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+    <!--Vista Form-->
+    <record id="gestion_ventas_from_view" model="ir.ui.view">
+        <field name="name">gestion.ventas.ventas.form</field>
+        <field name="model">gestion.ventas.ventas</field>
+        <field name="arch" type="xml">
+            <form string="Venta" create="1" edit="1">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="borrador,confirmado,facturado"/>
+                </header>
+                <sheet>
+                    <notebook>
+                        <page string="Informacion General">
+                            <group>
+                                <field name="name"/>
+                                <field name="sell_date"/>
+                                <field name="costumer"/>
+                                <field name="seller" widget="many2one_avatar_user"/>
+                            </group>
+                        </page>
+                        <page string="Productos">
+                            <field name="linea_ids">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="price_unit" widget="monetary"/>
+                                    <field name="subtotal" widget="monetary"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Totales y Factura">
+                            <group>
+                                <field name="full_price" widget="monetary" readonly="1"/>
+                                <field name="invoice_id" readonly="1"/>
+                            </group>
+                        </page>
+                        <page string="Seguimiento">
+                            <field name="activity_ids"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Vista Kanban-->
+    <record id="gestion_ventas_kanban_view" model="ir.ui.view">
+        <field name="name">gestion.ventas.ventas.kanban</field>
+        <field name="model">gestion.ventas.ventas</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column" default_group_by="state">
+                <field name="state"/>
+                <field name="costumer"/>
+                <field name="seller"/>
+                <field name="sell_date"/>
+                <field name="full_price"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card">
+                            <div class="o_kanban_details">
+                                <strong><field name="costumer"/></strong>
+                                <small>Fecha: <field name="sell_date"/></small>
+                            </div>
+                            <div>
+                                <ul class="oe_kanban_card_content">
+                                    <li><strong>Vendedor:</strong> <field name="seller"/></li>
+                                    <li><strong>Total:</strong> <field name="full_price"/></li>
+                                    <li><strong>Estado:</strong> <field name="state"/></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!--Vista Calendar-->
+    <record id="gestion_ventas_calendar_view" model="ir.ui.view">
+        <field name="name">gestion.ventas.ventas.calendar</field>
+        <field name="model">gestion.ventas.ventas</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendario de Ventas" date_start="sell_date" color="seller">
+                <field name="costumer"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="action_gestion_ventas" model="ir.actions.act_window">
+        <field name="name">Gestión de Ventas</field>
+        <field name="res_model">gestion.ventas.ventas</field>
+        <field name="view_mode">kanban,form,calendar</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                ¡Empieza a registrar tus ventas personalizadas aquí!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_gestion_ventas_root" name="Ventas" sequence="10"/>
+    <menuitem id="menu_gestion_ventas_main" name="Gestión de Ventas" parent="menu_gestion_ventas_root" sequence="1"/>
+    <menuitem id="menu_gestion_ventas_items" name="Ventas" parent="menu_gestion_ventas_main" action="action_gestion_ventas" sequence="1"/>
+    <menuitem id="menu_dashboard_gestion_ventas" name="Dashboard" parent="menu_gestion_ventas_main" action="gestion_ventas_dashboard_action" sequence="2"/>
+
 </odoo>

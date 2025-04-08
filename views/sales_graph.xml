@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="sales_view_graph" model="ir.ui.view">
+    <field name="name">sales.view.graph</field>
+    <field name="model">gestion.ventas.ventas</field>
+    <field name="arch" type="xml">
+      <graph string="" type="bar">
+        <field name="seller" type="row"/>
+        <field name="sell_date " type="col"/>
+        <field name="full_price" type="measure"/>
+      </graph>
+    </field>
+  </record>
+
+  <record id="action_sales_graph" model="ir.actions.act_window">
+    <field name="name">Analisis de ventas</field>
+    <field name="res_model">gestion.ventas.ventas</field>
+    <field name="view_mode">graph</field>
+    <field name="view_id" ref="sales_view_graph"/>
+  </record>
+
+  <menuitem
+    id="sales_graph_menu"
+    name="Analisis de ventas"
+    parent="menu_root_gestion_ventas"
+    action="action_sales_graph"/>
+</odoo>

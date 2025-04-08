@@ -1,0 +1,5 @@
+<odoo>
+  <menuitem id="menu_root_gestion_ventas"
+            name="Gestión de Ventas"
+            sequence="10"/>
+</odoo>
