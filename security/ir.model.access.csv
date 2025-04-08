@@ -1,1 +1,3 @@
-sdasd
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+gestion_ventas.access_gestion_ventas_ventas,access_gestion_ventas_ventas,gestion_ventas.model_gestion_ventas_ventas,base.group_user,1,1,1,1
+gestion_ventas.access_gestion_ventas_linea,access_gestion_ventas_linea,gestion_ventas.model_gestion_ventas_linea,base.group_user,1,1,1,1

@@ -6,7 +6,7 @@
     <field name="arch" type="xml">
       <graph string="" type="bar">
         <field name="seller" type="row"/>
-        <field name="sell_date " type="col"/>
+        <field name="sell_date" type="col"/>
         <field name="full_price" type="measure"/>
       </graph>
     </field>

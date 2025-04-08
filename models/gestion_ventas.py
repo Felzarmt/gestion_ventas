@@ -7,10 +7,15 @@ class GestionVentas (models.Model):
     _description = "Gestion de ventas para clientes"
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    # price =
+    name = fields.Char(string="Nombre de la venta")
     full_price = fields.Float(
         string="TOTAL", readonly=True, compute="_compute_precio_total", store=True)
     sell_date = fields.Date(string="Fecha de venta")
+    state = fields.Selection([
+        ("borrador", "Borrador"),
+        ("confirmado", "Confirmado"),
+        ("facturado", "Facturado")
+    ])
 
     # Relaciones
     linea_ids = fields.One2many(
