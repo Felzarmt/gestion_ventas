@@ -52,30 +52,28 @@
         <field name="name">gestion.ventas.ventas.kanban</field>
         <field name="model">gestion.ventas.ventas</field>
         <field name="arch" type="xml">
-            <kanban class="o_kanban_small_column" default_group_by="state">
-                <field name="state"/>
-                <field name="costumer"/>
-                <field name="seller"/>
-                <field name="sell_date"/>
-                <field name="full_price"/>
-                <templates>
-                    <t t-name="kanban-box">
-                        <div class="oe_kanban_card">
-                            <div class="o_kanban_details">
-                                <strong><field name="costumer"/></strong>
-                                <small>Fecha: <field name="sell_date"/></small>
-                            </div>
-                            <div>
-                                <ul class="oe_kanban_card_content">
-                                    <li><strong>Vendedor:</strong> <field name="seller"/></li>
-                                    <li><strong>Total:</strong> <field name="full_price"/></li>
-                                    <li><strong>Estado:</strong> <field name="state"/></li>
-                                </ul>
-                            </div>
+        <kanban default_group_by="state">
+            <field name="state"/>
+            <field name="costumer"/>
+            <field name="seller"/>
+            <field name="sell_date"/>
+            <field name="full_price"/>
+            <templates>
+                <t>
+                    <div class="o_kanban_record">
+                        <div class="o_kanban_header d-flex justify-content-between align-items-center">
+                            <strong><field name="costumer"/></strong>
+                            <span><field name="sell_date"/></span>
                         </div>
-                    </t>
-                </templates>
-            </kanban>
+                        <div class="o_kanban_content mt-2">
+                            <div>🧑‍💼 <field name="seller"/></div>
+                            <div>💰 <field name="full_price" widget="monetary"/></div>
+                            <div>📦 <field name="state"/></div>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
         </field>
     </record>
 
