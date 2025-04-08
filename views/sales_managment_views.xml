@@ -6,23 +6,26 @@
         <field name="name">gestion.ventas.ventas.form</field>
         <field name="model">gestion.ventas.ventas</field>
         <field name="arch" type="xml">
-            <form string="Venta" create="1" edit="1">
-                <header>
+            <form string="Venta" create="1" edit="1" class="custom_form_view">
+                <header class="custom_form_header">
                     <field name="state" widget="statusbar" statusbar_visible="borrador,confirmado,facturado"/>
                 </header>
-                <sheet>
-                    <notebook>
-                        <page string="Informacion General">
-                            <group>
-                                <field name="name"/>
-                                <field name="sell_date"/>
-                                <field name="costumer"/>
-                                <field name="seller" widget="many2one_avatar_user"/>
+                <sheet class="custom_form_sheet">
+                    <div class="form_title_container">
+                        <h1 class="form_title">Detalles de Venta</h1>
+                    </div>
+                    <notebook class="custom_notebook">
+                        <page string="Informacion General" class="info_general_page">
+                            <group class="info_general_group">
+                                <field name="name" class="field_highlight"/>
+                                <field name="sell_date" class="field_date"/>
+                                <field name="costumer" class="field_customer"/>
+                                <field name="seller" widget="many2one_avatar_user" class="field_seller"/>
                             </group>
                         </page>
-                        <page string="Productos">
-                            <field name="linea_ids">
-                                <list editable="bottom">
+                        <page string="Productos" class="productos_page">
+                            <field name="linea_ids" class="productos_list">
+                                <list editable="bottom" class="custom_editable_list">
                                     <field name="product_id"/>
                                     <field name="quantity"/>
                                     <field name="price_unit" widget="monetary"/>
@@ -30,16 +33,16 @@
                                 </list>
                             </field>
                         </page>
-                        <page string="Totales y Factura">
-                            <group>
-                                <field name="full_price" widget="monetary" readonly="1"/>
-                                <field name="invoice_id" readonly="1"/>
-                                <button name="generar_factura" string="Crear factura" type="object" class="oe_highlight"/>
+                        <page string="Totales y Factura" class="totales_page">
+                            <group class="totales_group">
+                                <field name="full_price" widget="monetary" readonly="1" class="field_total"/>
+                                <field name="invoice_id" readonly="1" class="field_invoice"/>
+                                <button name="generar_factura" string="Crear factura" type="object" class="custom_button create_invoice_button"/>
                             </group>
                         </page>
-                        <page string="Seguimiento">
-                            <field name="activity_ids"/>
-                            <field name="message_ids" widget="mail_thread"/>
+                        <page string="Seguimiento" class="seguimiento_page">
+                            <field name="activity_ids" class="activities_field"/>
+                            <field name="message_ids" widget="mail_thread" class="messages_field"/>
                         </page>
                     </notebook>
                 </sheet>
@@ -52,7 +55,7 @@
         <field name="name">gestion.ventas.ventas.kanban</field>
         <field name="model">gestion.ventas.ventas</field>
         <field name="arch" type="xml">
-        <kanban default_group_by="state">
+        <kanban default_group_by="state" class="custom_kanban">
             <field name="state"/>
             <field name="costumer"/>
             <field name="seller"/>
@@ -60,15 +63,15 @@
             <field name="full_price"/>
             <templates>
                 <t t-name="card">
-                    <div class="o_kanban_record">
-                        <div class="o_kanban_header d-flex justify-content-between align-items-center">
-                            <strong><field name="costumer"/></strong>
-                            <span><field name="sell_date"/></span>
+                    <div class="o_kanban_record custom_kanban_card">
+                        <div class="custom_kanban_header">
+                            <strong class="customer_name"><field name="costumer"/></strong>
+                            <span class="sale_date"><field name="sell_date"/></span>
                         </div>
-                        <div class="o_kanban_content mt-2">
-                            <div>🧑‍💼 <field name="seller"/></div>
-                            <div>💰 <field name="full_price" widget="monetary"/></div>
-                            <div>📦 <field name="state"/></div>
+                        <div class="custom_kanban_content">
+                            <div class="seller_info"><i class="fa fa-user"></i> <field name="seller"/></div>
+                            <div class="price_info"><i class="fa fa-money"></i> <field name="full_price" widget="monetary"/></div>
+                            <div class="state_info"><i class="fa fa-tasks"></i> <field name="state"/></div>
                         </div>
                     </div>
                 </t>
@@ -93,7 +96,7 @@
         <field name="res_model">gestion.ventas.ventas</field>
         <field name="view_mode">kanban,form,calendar</field>
         <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
+            <p class="o_view_nocontent custom_help_message">
                 ¡Empieza a registrar tus ventas personalizadas aquí!
             </p>
         </field>
