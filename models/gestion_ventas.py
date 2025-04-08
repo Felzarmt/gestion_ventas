@@ -45,6 +45,7 @@ class GestionVentas (models.Model):
                     'quantity': linea.quantity,
                     'price_unit': linea.price_unit,
                     'name': linea.product_id.name,
+                    'tax_ids': [(6, 0, linea.product_id.taxes_id.ids)],
                 })
                 lineas.append(linea_factura)
 
@@ -55,10 +56,6 @@ class GestionVentas (models.Model):
                 'move_type': 'out_invoice',
                 'invoice_line_ids': lineas,
             })
-
-            # Recalcular totales y validar
-            factura._recompute_dynamic_lines()
-            factura.action_post()
 
             # Guardar la factura en el campo Many2one
             record.invoice_id = factura.id

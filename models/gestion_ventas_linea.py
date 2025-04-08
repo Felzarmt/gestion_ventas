@@ -7,7 +7,7 @@ class GestionVentasLinea(models.Model):
 
     product_id = fields.Many2one(
         'product.product', string="Producto", required=True)
-    price_unit = fields.Float(string="Precio unitario", readonly=True)
+    price_unit = fields.Float(string="Precio unitario")
     quantity = fields.Integer(string="Cantidad", default=1)
     subtotal = fields.Float(
         string="Subtotal", compute="_compute_subtotal", store=True)
