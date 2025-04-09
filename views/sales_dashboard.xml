@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="sales_view_graph" model="ir.ui.view">
+    <field name="name">sales.view.graph</field>
+    <field name="model">gestion.ventas.ventas</field>
+    <field name="arch" type="xml">
+      <graph string="" type="bar">
+        <field name="seller" type="row"/>
+        <field name="sell_date" type="col"/>
+        <field name="full_price" type="measure"/>
+      </graph>
+    </field>
+  </record>
+
+  <record id="sales_view_pivot" model="ir.ui.view">
+    <field name="name">sales.view.pivot</field>
+    <field name="model">gestion.ventas.ventas</field>
+    <field name="arch" type="xml">
+      <pivot string="Pivot de ventas">
+        <field name="seller" type="row"/>
+        <field name="sell_date" type="col"/>
+        <field name="full_price" type="measure"/>
+      </pivot>
+    </field>
+  </record>
+
+  <record id="action_sales_graph" model="ir.actions.act_window">
+    <field name="name">Grafico de barras</field>
+    <field name="res_model">gestion.ventas.ventas</field>
+    <field name="view_mode">graph</field>
+    <field name="view_id" ref="sales_view_graph"/>
+  </record>
+
+  <record id="action_sales_pivot" model="ir.actions.act_window">
+    <field name="name">Pivot de ventas</field>
+    <field name="res_model">gestion.ventas.ventas</field>
+    <field name="view_mode">pivot</field>
+    <field name="view_id" ref="sales_view_pivot"/>
+  </record>
+
+
+  <menuitem id="menu_dashboard_root"
+    name="Analisis de ventas"
+    parent="menu_gestion_ventas_root"
+    sequence="1"/>
+
+  <menuitem
+    id="sales_graph_menu"
+    name="Grafico de barras"
+    parent="menu_dashboard_root"
+    action="action_sales_graph"/>
+
+  <menuitem id="sales_pivot_menu"
+    name="Pivot de ventas"
+    parent="menu_dashboard_root"
+    action="action_sales_pivot"/>
+
+</odoo>

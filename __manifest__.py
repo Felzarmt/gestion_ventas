@@ -10,7 +10,7 @@
     "data": [
         "security/ir.model.access.csv",
         "views/sales_managment_views.xml",
-        "views/sales_graph.xml"
+        "views/sales_dashboard.xml"
     ],
     "assets": {
         "web.assets_backend": [
